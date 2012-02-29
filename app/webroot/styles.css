@@ -1,0 +1,132 @@
+/* CSS Document */
+
+@font-face {
+    font-family: "Serifa Light BT";
+    src: url("fonts/SERIFAL.TTF");
+}
+
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p, blockquote, 
+a,dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, tbody,  thead, tr, th, td {
+margin: 0;padding: 0;border: 0;outline: 0;vertical-align: baseline;
+}
+
+body {background:url(_images/background.jpg) center #ece6d0;font-family:Arial, Helvetica, sans-serif}
+
+
+
+.clear {clear:both}
+.borderleft { border-left:1px solid #707070; height:5px; }
+.center { text-align:center; }
+.margin10 {margin:10px;}
+.height50 { height:50px; }
+
+#header{ background:url(_images/header.png) no-repeat;width:976px;height:111px}
+#container{ width:976px;margin:0 auto;font:Arial, Helvetica, sans-serif 14px;}
+#bottom {width:100%;height:50px;background:#95afa0; position:fixed; bottom:0px; z-index:3}
+
+#btn_crea_compte { display:block; background:#000000; text-decoration: none; color:#FFFFFF; font-size:1.3em;font-weight:bold; padding:0.625em; text-align:center; width:80%; border:0.1875em solid #FFFFFF; border-radius: 0.625em; -moz-border-radius: 0.625em; -webkit-border-radius: 0.625em;}
+
+#vignettes1280 { position:relative; left:10px; display:block }
+#vignettes800 { text-align:center;display:none }
+
+/***** RIGHT *****/
+#right{width:318px; float:right; position:relative; font-size:0.94em;margin-bottom:50px;}
+
+#right #bloc-present { background:#9a9a9a; color:#FFFFFF; padding:20px; }
+#right #bloc-present h2 { font-family:"Serifa Light BT";font-size:1.29em; border-bottom:1px solid #FFFFFF;padding-bottom:5px;margin-bottom:5px}
+
+#right #bloc-pro {margin:33px 0 0 20px;background:#95afa0;padding:0 22px 16px 16px;  }
+#right #bloc-pro h2 { font-family:"Serifa Light BT";font-size:1.3em;color:#FFFFFF; background:url(_images/ombre_encart.png) bottom left no-repeat;height:42px;position:relative;left:-27px;top:-15px;text-shadow: 2px 2px 2px #707070; }
+#right #bloc-pro h2 span { background:#000000;display:block;width:275px; padding:5px 0 5px 15px;}
+#right #bloc-pro p {margin:0 0 20px 0}
+#right #bloc-pro a { color:#616161; font-size:0.8em; }
+#right #bloc-pro input[type=email], #right #bloc-pro input[type=password] { width:97%;margin-bottom:18px;padding:4px }
+#right #bloc-pro input[type=submit] { margin-bottom:18px;background:#ede7d3; border:1px solid #adadad; padding:5px;}
+
+#right #bloc-inscription {margin:2px 0 0 20px;background:#acc1b5;padding:15px 22px 16px 16px;}
+#right #bloc-inscription h2 { font-size:1.3em;color:#FFFFFF; background:url(_images/ombre_encart.png) bottom left no-repeat;height:42px;position:relative;left:-27px;text-shadow: 2px 2px 2px #707070; }
+#right #bloc-inscription h2 span { font-family:"Serifa Light BT";background:#9a9a9a;display:block;width:275px; padding:5px 0 5px 15px}
+
+#right #qrcode { text-align:center;margin:25px auto; }
+
+#right #deco { text-align:center; margin:0 auto }
+
+/**** SOUS MENU ****/
+ul#sous_menu { text-align:center;color:#707070;font-size:0.688em;margin:5px 0 0 0 }
+ul#sous_menu a { color:#707070;}
+ul#sous_menu li { display:inline;padding:5px; }
+
+/**** MAIN****/
+#app_dispo { font-family:"Serifa Light BT";font-weight:bold;font-size:1.2em;}
+
+#main {width:618px; padding:18px; float:left; background:#FFFFFF; position:relative; z-index:2; font-size:0.938em;}
+#main a {color:#95afa0;}
+#main p { margin:10px 0; }
+#main ul#sous_menu { text-align:center;color:#707070;font-size:0.688em; }
+#main ul#sous_menu a { color:#707070;}
+#main ul#sous_menu li { display:inline;padding:5px; }
+#main #description { background:url(_images/bloc_description.png) no-repeat; width:259px; height:229px; text-align:left; padding: 0 5px 0 50px; }
+
+#main h3 {font-family:"Serifa Light BT"; font-weight:bold; font-size:1.29em;}
+
+#main #description td { height:30px; vertical-align: middle; font-size:0.75em}
+
+#main .bloc { width:309px; float:left }
+#main #pres-appli { background:url(_images/fond_main_1280.png) no-repeat center; width:650px;height:520px;margin:20px 10px;};
+
+
+#bloc-inscription a.btn { display:block; background:#000000; text-decoration: none; color:#FFFFFF; font-size:1.25em; font-weight:bold; padding:10px; text-align:center; width:200px; border:3px solid #FFFFFF; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; }
+
+#img-present-340 { display:none; }
+
+@media (max-width: 1000px) {
+	#main #vignettes1280 { display:none }
+	#main #vignettes800 { display:block }
+	
+	#header{ background:url(_images/header662.png) no-repeat;width:660px;height:111px}
+	#container{ width:660px; }
+	#main {width:308px; padding:17px; float:left; background:#FFFFFF; position:relative; z-index:2;}
+	#main .bloc { width:309px; }
+	#main #pres-appli { background:none; width:308px;height:auto;margin:20px 10px;};
+	
+}
+
+/***** [ Mobile - low res ] *****/
+@media handheld, only screen and (max-width: 800px), only screen and (max-device-width: 685px) {
+	body { font-size:1.7em }
+	#header{ background:url(_images/header340.png) no-repeat;width:100%;height:111px}
+	#container{ width:100%;margin:0 auto;font:Arial, Helvetica, sans-serif 1em;}
+	#right{width:100%; margin-bottom:0px; background:#FFFFFF}
+	
+	#right #bloc-pro {margin:33px 0 0 0; font-size:1.25em; background:none;padding:0 22px 16px 16px;}
+	#right #bloc-pro h2 {margin-bottom:0.625em;}
+
+	#right #bloc-present { background:none; font-size:1.25em; color:#000000; padding:20px;}
+	#right #bloc-present h2 { border-bottom:1px solid #9a9a9a;color:#9a9a9a;padding-bottom:5px;margin-bottom:5px;top:0}
+	#right #bloc-pro h2 span { background:#000000;display:block;width:95%; padding:4px 0 4px 15px}
+
+	#right #bloc-inscription {margin:2px 0 0 0;background:none;padding:15px 22px 16px 16px; font-size:1.25em; }
+	#right #bloc-inscription h2 { margin-bottom:0.625em; }
+	#right #bloc-inscription h2 span { background:#9a9a9a;display:block;width:95%; padding:4px 0 4px 15px}
+
+	#right #bloc-pro input[type=email], #right #bloc-pro input[type=password] { width:97%;margin-bottom:18px;padding:4px;height:1.5em;font-size:1.25em; }
+	#right #bloc-pro input[type=submit] { margin-bottom:18px;background:#ede7d3; border:1px solid #adadad; padding:0.2em;height:1.7em;font-size:1.25em;}
+	#pro_restau { padding:20px }
+
+	#main {width:100%;background:#FFFFFF; position:relative; margin:0; padding:0; z-index:2;font-size:1.25em; }
+	#main #pres-appli { display:none;background:none; width:98%;height:auto;margin:20px 10px;};
+	#main .bloc { width:100%; }
+	#bottom { display:none}
+	
+	#main #vignettes1280 { display:none }
+	#main #vignettes800 { display:none }
+	
+	#img-present-340 { display:block;width:100% }
+
+}
+
+/**** TEXTES ****/
+.vert { color:#95afa0 }
