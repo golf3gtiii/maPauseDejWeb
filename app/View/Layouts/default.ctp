@@ -3,8 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo $title_for_layout?></title>
-<link href="styles.css" rel="stylesheet" media="screen" />
-
+<?php echo $this->Html->css('styles'); ?>
 </head>
 
 <body id="page">
@@ -21,7 +20,7 @@
                     Un clic pour s'ouvrir l'appétit, varier vos envies et vos plaisirs gustatifs.
                 </p>
                 
-                <img src="_images/appli_340.png" id="img-present-340" alt="" />
+                <img src="/_images/appli_340.png" id="img-present-340" alt="" />
                 
             </div>    
             
@@ -50,7 +49,7 @@
            
             
             <div id="vignettes800">
-            	<img src="_images/vignettes_800.png" alt="" />
+            	<img src="/_images/vignettes_800.png" alt="" />
             </div>
             
         </div>
