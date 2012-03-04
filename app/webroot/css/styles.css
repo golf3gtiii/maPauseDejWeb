@@ -22,6 +22,20 @@ body {background:url(/_images/background.jpg) center #ece6d0;font-family:Arial, 
 .center { text-align:center; }
 .margin10 {margin:10px;}
 .height50 { height:50px; }
+.btn_form { margin-bottom:18px;background:#ede7d3; border:1px solid #adadad; padding:5px; }
+.error { padding:5px; background: #FFDACC; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+.error-message {
+	-moz-border-radius: none;
+	-webkit-border-radius: none;
+	border-radius: none;
+	border: none;
+	background: none;
+	margin: 0;
+	padding-left: 4px;
+	padding-right: 0;
+}
+.error,
+.error-message {color: #9E2424; -webkit-box-shadow: none; -moz-box-shadow: none;-ms-box-shadow: none;-o-box-shadow: none;box-shadow: none;text-shadow: none;}
 
 #header{ background:url(/_images/header.png) no-repeat;width:976px;height:111px}
 #container{ width:976px;margin:0 auto;font:Arial, Helvetica, sans-serif 14px;}
@@ -74,8 +88,17 @@ ul#sous_menu li { display:inline;padding:5px; }
 
 #main #description td { height:30px; vertical-align: middle; font-size:0.75em}
 
+#main .cadre_form { background:#FFFFFF;padding:25px; margin:35px;border:1px solid #adadad; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; }
+#main .cadre_form label { color:#616161; }
+#main .cadre_form .input { margin-bottom:18px; }
+
+#main .cadre_form input[type=text], #main .cadre_form input[type=password] { width: 97%;padding:4px  }
+#main .cadre_form input[type=submit] { margin-bottom:18px;background:#ede7d3; border:1px solid #adadad; padding:5px;}
+
+
 #main .bloc { width:309px; float:left }
 #main #pres-appli { background:url(/_images/fond_main_1280.png) no-repeat center; width:650px;height:520px;margin:20px 10px;};
+
 
 
 #bloc-inscription a.btn { display:block; background:#000000; text-decoration: none; color:#FFFFFF; font-size:1.25em; font-weight:bold; padding:10px; text-align:center; width:200px; border:3px solid #FFFFFF; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; }
