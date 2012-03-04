@@ -7,6 +7,8 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
+    
+     
 
 /**
  * index method
@@ -39,13 +41,44 @@ class UsersController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
-			$this->User->create();
-			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-			}
+			$post = $this->request->data['User'];
+                        
+                        $errors = false;
+                        
+                        if (!$post['confirm_creation'] && !$errors) {
+                            $errors = true;
+                            $this->User->validationErrors['confirm_creation'] = "Confirmer la création de votre compte pour valider ce formulaire.";
+                        }
+                        
+                        if ($post['username'] != $post['cusername']) {
+                            $errors = true;
+                            $this->User->validationErrors['cusername'] = "Les deux adresses mails ne correspondent pas.";
+                        }
+                    
+                        if ($post['password'] != $post['cpassword']) {
+                            $errors = true;
+                            $this->User->validationErrors['cpassword'] = "Les deux mots de passe ne correspondent pas.";
+                        }
+                        
+                        
+                    
+                        if (!$errors) {
+                            $this->User->create();
+                            if ($this->User->save($this->request->data)) {
+                                    App::uses('CakeEmail', 'Network/Email');
+                                    $email = new CakeEmail();
+                                    $email->from(array('golf3gtiii@hotmail.com' => 'Ma pause déj'))
+                                        ->to($post['username'])
+                                        ->subject('Veuillez confirmer votre inscription')
+                                        ->send('Bonjour,<br/>Veuilez cliquer sur le lien ci-dessous pour valider votre compte. 
+                                            <a href="http://mapausedej.localhost:8888/users/confirm">Ici</a>');
+                                
+                                    $this->Session->setFlash(__('Merci pour votre inscription. Un mail de confirmation vous a été envoyé.'));
+                                    $this->redirect(array('action' => 'add'));
+                            } else {
+                                    $this->Session->setFlash(__('Erreur. Réessayer !'));
+                            }
+                        }
 		}
 	}
 

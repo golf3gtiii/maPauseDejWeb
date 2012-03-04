@@ -10,7 +10,7 @@ class User extends AppModel {
  *
  * @var string
  */
-	public $displayField = 'username';
+//	public $displayField = 'username';
 /**
  * Validation rules
  *
@@ -26,11 +26,15 @@ class User extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+                        'isUnique' => array(
+                                'rule' => 'isUnique',
+                                'message' => 'Cet email est déjà utilisé par un autre compte.'
+                        ),
 		),
 		'password' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
-				'message' => 'Entrez un password',
+				'message' => 'Entrez un mot de passe',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
