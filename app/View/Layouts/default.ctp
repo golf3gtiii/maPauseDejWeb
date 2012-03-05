@@ -3,7 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo $title_for_layout?></title>
-<?php echo $this->Html->css('styles'); ?>
+<?php //echo $this->Html->css('styles'); ?>
+<link rel="stylesheet/less" type="text/css" href="/css/styles.less" />
+<script src="/js/less-1.2.2.min.js" type="text/javascript"></script>
 </head>
 
 <body id="page">
