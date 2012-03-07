@@ -64,6 +64,7 @@ class UsersController extends AppController {
                     
                         if (!$errors) {
                             $this->User->create();
+                            $this->request->data['password'] = md5($this->request->data['password']);
                             if ($this->User->save($this->request->data)) {
                                     App::uses('CakeEmail', 'Network/Email');
                                     $email = new CakeEmail();

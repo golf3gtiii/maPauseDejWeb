@@ -212,14 +212,16 @@ ul#sous_menu {
 
 
 @media (max-width: 1000px) {
-	#main #vignettes1280 { display:none }
-	#main #vignettes800 { display:block }
-	
+    #main {
+        width:308px; padding:17px; float:left; background:#FFFFFF; position:relative; z-index:2;
+        #vignettes1280 { display:none }
+        #vignettes800 { display:block }
+        .bloc { width:309px; }
+        #pres-appli { background:none; width:308px;height:auto;margin:20px 10px;}
+    }
+    
 	#header{ background:url(/_images/header662.png) no-repeat;width:660px;height:111px}
 	#container{ width:660px; }
-	#main {width:308px; padding:17px; float:left; background:#FFFFFF; position:relative; z-index:2;}
-	#main .bloc { width:309px; }
-	#main #pres-appli { background:none; width:308px;height:auto;margin:20px 10px;}
 	
 }
 
@@ -228,31 +230,39 @@ ul#sous_menu {
 	body { font-size:1.7em }
 	#header{ background:url(/_images/header340.png) no-repeat;width:100%;height:111px}
 	#container{ width:100%;margin:0 auto;font:Arial, Helvetica, sans-serif 1em;}
-	#right{width:100%; margin-bottom:0px; background:#FFFFFF}
+	#right{
+            width:100%; margin-bottom:0px; background:#FFFFFF;
+            #bloc-pro {
+                margin:33px 0 0 0; font-size:1.25em; background:none;padding:0 22px 16px 16px;
+                h2 {margin-bottom:0.625em;}
+                h2 span { background:#000000;display:block;width:95%; padding:4px 0 4px 15px}
+                input[type=email], input[type=password] { width:97%;margin-bottom:18px;padding:4px;height:1.5em;font-size:1.25em; }
+                input[type=submit] { margin-bottom:18px;background:#ede7d3; border:1px solid #adadad; padding:0.2em;height:1.7em;font-size:1.25em;}
+            }
+            #bloc-present { 
+                background:none; font-size:1.25em; color:#000000; padding:20px;
+                h2 { border-bottom:1px solid #9a9a9a;color:#9a9a9a;padding-bottom:5px;margin-bottom:5px;top:0}
+            }
+            #bloc-inscription {
+                margin:2px 0 0 0;background:none;padding:15px 22px 16px 16px; font-size:1.25em; 
+                h2 { margin-bottom:0.625em; }
+                h2 span { background:#9a9a9a;display:block;width:95%; padding:4px 0 4px 15px}
+            }
+            #main {
+                width:100%;background:#FFFFFF; position:relative; margin:0; padding:0; z-index:2;font-size:1.25em; 
+                #pres-appli { display:none;background:none; width:98%;height:auto;margin:20px 10px;}
+                .bloc { width:100%; }
+                #vignettes1280 { display:none }
+                #vignettes800 { display:none }
+            }
+        }
 	
-	#right #bloc-pro {margin:33px 0 0 0; font-size:1.25em; background:none;padding:0 22px 16px 16px;}
-	#right #bloc-pro h2 {margin-bottom:0.625em;}
+	
 
-	#right #bloc-present { background:none; font-size:1.25em; color:#000000; padding:20px;}
-	#right #bloc-present h2 { border-bottom:1px solid #9a9a9a;color:#9a9a9a;padding-bottom:5px;margin-bottom:5px;top:0}
-	#right #bloc-pro h2 span { background:#000000;display:block;width:95%; padding:4px 0 4px 15px}
-
-	#right #bloc-inscription {margin:2px 0 0 0;background:none;padding:15px 22px 16px 16px; font-size:1.25em; }
-	#right #bloc-inscription h2 { margin-bottom:0.625em; }
-	#right #bloc-inscription h2 span { background:#9a9a9a;display:block;width:95%; padding:4px 0 4px 15px}
-
-	#right #bloc-pro input[type=email], #right #bloc-pro input[type=password] { width:97%;margin-bottom:18px;padding:4px;height:1.5em;font-size:1.25em; }
-	#right #bloc-pro input[type=submit] { margin-bottom:18px;background:#ede7d3; border:1px solid #adadad; padding:0.2em;height:1.7em;font-size:1.25em;}
 	#pro_restau { padding:20px }
 
-	#main {width:100%;background:#FFFFFF; position:relative; margin:0; padding:0; z-index:2;font-size:1.25em; }
-	#main #pres-appli { display:none;background:none; width:98%;height:auto;margin:20px 10px;}
-	#main .bloc { width:100%; }
+	
 	#bottom { display:none}
-	
-	#main #vignettes1280 { display:none }
-	#main #vignettes800 { display:none }
-	
 	#img-present-340 { display:block;width:100% }
 
 }
