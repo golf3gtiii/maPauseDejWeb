@@ -8,7 +8,26 @@ App::uses('AppController', 'Controller');
 class UsersController extends AppController {
 
     
-     
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('add', 'logout');
+    }
+    
+    public function login() {
+        if ($this->Auth->login()) {
+            $this->redirect($this->Auth->redirect());
+        } else {
+            $this->Session->setFlash(__('Invalid username or password, try again'));
+        }
+    }
+
+    public function logout() {
+        $this->redirect($this->Auth->logout());
+    }
+    
+    public function getSession() {
+        $this->set('auth_session', $this->Auth);
+    }
 
 /**
  * index method
@@ -64,7 +83,7 @@ class UsersController extends AppController {
                     
                         if (!$errors) {
                             $this->User->create();
-                            $this->request->data['password'] = md5($this->request->data['password']);
+//                            $this->request->data['password'] = md5($this->request->data['password']);
                             if ($this->User->save($this->request->data)) {
                                     App::uses('CakeEmail', 'Network/Email');
                                     $email = new CakeEmail();

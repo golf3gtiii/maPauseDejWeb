@@ -26,25 +26,16 @@
                 
             </div>    
             
-            <div id="bloc-pro">
-            	<h2><span>Accès professionnels</span></h2>
-                <form action="" method="post">
-                	<p>Vous avez déjà un compte :</p>
-                    <input type="email" name="email" id="email" placeholder="Votre e-mail" /><br />
-                    <input type="password" name="mdp" id="mdp" placeholder="Mot de passe" /><br />
-                    <div align="center">
-                    	<input type="submit" name="se_connecter" value="Se connecter" />
-                    </div>
-                    
-                    <p><a href="">&gt; Mot de passe oublié ?</a></p>
-                    
-                </form>
-            </div>
+            <?php 
+//            echo $test;
+            echo $this->element('right', array('session' => ''));
+            ?>
+            
             
             <div id="bloc-inscription">
             	<h2><span>Inscription gratuite</span></h2>
                 <div align="center" >
-                	<a href="" id="btn_crea_compte">Créer votre compte restaurateur</a> 
+                	<a href="/users/add" id="btn_crea_compte">Créer votre compte restaurateur</a> 
                 </div>
             </div>
             
