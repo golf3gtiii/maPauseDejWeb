@@ -29,7 +29,7 @@
 
 <div id="pro_restau">
     <h3><span class="vert">Professionnels</span> de la restauration</h3>
-    <p>Vous êtes un restaurateur, un boulanger,, un professionnel de la restauration, tous les jours vous proposez un ou des plats du jour différents, vous souhaitez que vos clients soient facilement informés des bons plats que vous leurs concoctez.</p>
+    <p>Vous êtes un restaurateur, un boulanger, un professionnel de la restauration, tous les jours vous proposez un ou des plats du jour différents, vous souhaitez que vos clients soient facilement informés des bons plats que vous leurs concoctez.</p>
     <p>Avec l'application "Ma pause déj'", <?php echo $this->Html->link('inscrivez-vous gratuitement', '/users/add'); ?>, <strong>puis connectez-vous</strong>, remplissez votre fiche de renseignements concernant votre établissement (description, spécialités, photos, horaires d'ouverture,...)  et ajouter vos plats du jour que vous allez proposer le jour même ou les jours suivants.</p>
     <p><strong>C'est SIMPLE, FACILE et RAPIDE ET ENTIÈREMENT GRATUIT !</strong></p>
     </div>

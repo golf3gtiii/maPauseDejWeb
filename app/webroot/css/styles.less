@@ -2,8 +2,12 @@
 
 @font-face {
     font-family: "Serifa Light BT";
-    src: url("fonts/SERIFAL.TTF");
+    src: url("/fonts/SERIFAL.TTF");
 }
+
+/* Variables */
+@gris: #adadad;
+@vert: #95afa0;
 
 /* Fonctions */
 .rounded-corners (@radius: 5px) {
@@ -22,14 +26,15 @@ margin: 0;padding: 0;border: 0;outline: 0;vertical-align: baseline;
 
 body {background:url(/_images/background.jpg) center #ece6d0;font-family:Arial, Helvetica, sans-serif}
 
-
+.clear { clear: both;}
+.backgroundblanc { background:#FFFFFF; }
 .alignright { text-align: right }
 .clear {clear:both}
 .borderleft { border-left:1px solid #707070; height:5px; }
 .center { text-align:center; }
 .margin10 {margin:10px;}
 .height50 { height:50px; }
-.btn_form { margin-bottom:18px;background:#ede7d3; border:1px solid #adadad; padding:5px; }
+.btn_form { margin-bottom:18px;background:#ede7d3; border:1px solid @gris; padding:5px; }
 .error { padding:5px; background: #FFDACC; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
 .error-message {
 	-moz-border-radius: none;
@@ -135,9 +140,13 @@ p.error em {
 	color: #fff;
 }
 
+input[type=text], textarea {
+    border:1px solid #9a9a9a;
+}
+
 #header{ background:url(/_images/header.png) no-repeat;width:976px;height:111px}
 #container{ width:976px;margin:0 auto;font:Arial, Helvetica, sans-serif 14px;}
-#bottom {width:100%;height:50px;background:#95afa0; position:fixed; bottom:0px; z-index:3}
+#bottom {width:100%;height:50px;background:@vert; position:fixed; bottom:0px; z-index:3}
 
 #btn_crea_compte { display:block; background:#000000; text-decoration: none; color:#FFFFFF; font-size:1.3em;font-weight:bold; padding:0.625em; text-align:center; width:80%; border:0.1875em solid #FFFFFF; .rounded-corners(0.625em); }
 
@@ -152,13 +161,13 @@ p.error em {
         h2 { font-family:"Serifa Light BT";font-size:1.29em; border-bottom:1px solid #FFFFFF;padding-bottom:5px;margin-bottom:5px}
     }
     #bloc-pro {
-        margin:33px 0 0 20px;background:#95afa0;padding:0 22px 16px 16px;  
+        margin:33px 0 0 20px;background:@vert;padding:0 22px 16px 16px;  
         h2 { font-family:"Serifa Light BT";font-size:1.3em;color:#FFFFFF; background:url(/_images/ombre_encart.png) bottom left no-repeat;height:42px;position:relative;left:-27px;top:-15px;text-shadow: 2px 2px 2px #707070; }
         h2 span { background:#000000;display:block;width:275px; padding:5px 0 5px 15px;}
         p {margin:0 0 20px 0}
         a { color:#616161; font-size:0.8em; }
         input[type=email], input[type=text], input[type=password] { width:97%;margin-bottom:18px;padding:4px }
-        input[type=submit] { margin-bottom:18px;background:#ede7d3; border:1px solid #adadad; padding:5px;}
+        input[type=submit] { margin-bottom:18px;background:#ede7d3; border:1px solid @gris; padding:5px;}
     }
     #bloc-inscription {
         margin:2px 0 0 20px;background:#acc1b5;padding:15px 22px 16px 16px;
@@ -169,6 +178,17 @@ p.error em {
     #deco { text-align:center; margin:0 auto }
     #bloc-inscription a.btn { display:block; background:#000000; text-decoration: none; color:#FFFFFF; font-size:1.25em; font-weight:bold; padding:10px; text-align:center; width:200px; border:3px solid #FFFFFF;.rounded-corners(10px); }
     #img-present-340 { display:none; }
+    #connecte {
+        margin:0 43px; color:#616161;font-weight: bold;font-size:0.9em;
+        ul li { list-style-type:none; }
+        p { margin:25px 0; }
+        a#deconnexion {
+                text-align:right; margin:15px 0 0 0; display: block; color:#a8a8a8; text-decoration: none;font-weight: normal;font-size:0.9em;
+                :hover { text-decoration: underline; }
+            }
+        a#fiche { display: block;padding:15px;background:@vert; border: 1px solid @gris; text-align: center;width:146px;color:#FFFFFF;text-decoration: none;margin: 36px auto; font-size: 1em; font-weight: bold }   
+        a#plats { display: block;padding:15px;background:#ede7d3; border: 1px solid @gris; text-align: center;width:146px;color:#000000;text-decoration: none;margin: 0 auto; font-size: 1em; font-weight: bold }
+    }
 }
 
 
@@ -184,7 +204,7 @@ ul#sous_menu {
 #main {
     width:618px; padding:18px; float:left; background:#FFFFFF; position:relative; z-index:2; font-size:0.938em;
     #app_dispo { font-family:"Serifa Light BT";font-weight:bold;font-size:1.2em;}
-    a {color:#95afa0;}
+    a {color:@vert;}
     p { margin:10px 0; }
     ul#sous_menu { 
         text-align:center;color:#707070;font-size:0.688em; 
@@ -195,22 +215,40 @@ ul#sous_menu {
         background:url(/_images/bloc_description.png) no-repeat; width:259px; height:229px; text-align:left; padding: 0 5px 0 50px; 
         td { height:30px; vertical-align: middle; font-size:0.75em}
     }
+    
+    h1 {font-family:"Serifa Light BT"; font-weight:bold; font-size:1.29em; border-bottom: 1px solid #A5A4A2;padding: 0 0 10px 10px; }
     h3 {font-family:"Serifa Light BT"; font-weight:bold; font-size:1.29em;}
     .cadre_form { 
-        background:#FFFFFF;padding:25px; margin:35px;border:1px solid #adadad; .rounded-corners(10px); 
+        background:#FFFFFF;padding:25px; margin:35px;border:1px solid @gris; .rounded-corners(10px); 
         label { color:#616161; }
         .input { margin-bottom:18px; }
         input[type=text], [type=password] { width: 97%;padding:4px  }
-        input[type=submit] { margin-bottom:18px;background:#ede7d3; border:1px solid #adadad; padding:5px;}
+        input[type=submit] { margin-bottom:18px;background:#ede7d3; border:1px solid @gris; padding:5px;}
     }
+    .form {
+        margin: 0 10px;
+        h2{ font-size:0.925em;margin:0 0 0.5em 0 }
+        label{ padding:0 0 10px 0; display:block;font-size: 0.9em; font-weight: 500; }
+        input[type=text], textarea { width:97%;padding:4px; }
+        .input { margin-bottom:18px;}
+        .btn_vert { border:1px solid @gris; background:@vert;color:#FFFFFF;padding:5px 20px;font-size:1em }
+        .inline { 
+            label { display:inline; }
+            .input { float:left; margin: 0 30px 0 0}
+            .checkbox { float:left; margin: 0 22px 0 0}
+            .select { float:left; margin: 0 30px 0 0}
+            
+        }
+        .separation {height:1px; background:@gris;margin:18px 0; }
+    }
+    
     .bloc { width:309px; float:left }
     #pres-appli { background:url(/_images/fond_main_1280.png) no-repeat center; width:650px;height:520px;margin:20px 10px}
 }
 
 
 
-
-
+/*** TABLETS ***/
 @media (max-width: 1000px) {
     #main {
         width:308px; padding:17px; float:left; background:#FFFFFF; position:relative; z-index:2;
@@ -237,7 +275,7 @@ ul#sous_menu {
                 h2 {margin-bottom:0.625em;}
                 h2 span { background:#000000;display:block;width:95%; padding:4px 0 4px 15px}
                 input[type=email], input[type=password] { width:97%;margin-bottom:18px;padding:4px;height:1.5em;font-size:1.25em; }
-                input[type=submit] { margin-bottom:18px;background:#ede7d3; border:1px solid #adadad; padding:0.2em;height:1.7em;font-size:1.25em;}
+                input[type=submit] { margin-bottom:18px;background:#ede7d3; border:1px solid @gris; padding:0.2em;height:1.7em;font-size:1.25em;}
             }
             #bloc-present { 
                 background:none; font-size:1.25em; color:#000000; padding:20px;
@@ -268,4 +306,4 @@ ul#sous_menu {
 }
 
 /**** TEXTES ****/
-.vert { color:#95afa0 }
+.vert { color:@vert }

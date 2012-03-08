@@ -10,7 +10,7 @@ class UsersController extends AppController {
     
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('add', 'logout');
+        $this->Auth->allow('add', 'logout', 'login');
     }
     
     public function login() {
@@ -23,6 +23,10 @@ class UsersController extends AppController {
 
     public function logout() {
         $this->redirect($this->Auth->logout());
+    }
+    
+    public function isAuthorized() {
+        
     }
     
     public function getSession() {
@@ -146,4 +150,8 @@ class UsersController extends AppController {
 		$this->Session->setFlash(__('User was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+        
+        public function monCompte() {
+            
+        }
 }

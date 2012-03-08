@@ -9,63 +9,28 @@
 </head>
 
 <body id="page">
-
-	<div id="container">
+	<div id="container" <?php echo $auth->login() ? 'class="backgroundblanc"' : ''; ?>>
     	<div id="header"></div>
     	<div id="right">
-            <div id="bloc-present">
-                <h2>Bienvenue sur ma pause déj' !</h2>
-                <p>
-                    L'application "Ma pause déj'" est une application destinée à aider les consommateurs à trouver facilement les différents plats du jour qu'ils peuvent déguster à proximité de leur lieux de travail,  domicile...
-                </p><br />
-                <p>
-                    Un clic pour s'ouvrir l'appétit, varier vos envies et vos plaisirs gustatifs.
-                </p>
-                
-                <img src="/_images/appli_340.png" id="img-present-340" alt="" />
-                
-            </div>    
-            
             <?php 
-//            echo $test;
-            echo $this->element('right', array('session' => ''));
+            echo $this->element('right', array('auth' => $auth));
             ?>
-            
-            
-            <div id="bloc-inscription">
-            	<h2><span>Inscription gratuite</span></h2>
-                <div align="center" >
-                	<a href="/users/add" id="btn_crea_compte">Créer votre compte restaurateur</a> 
-                </div>
-            </div>
-            
-           
-            
-            <div id="vignettes800">
-            	<img src="/_images/vignettes_800.png" alt="" />
-            </div>
-            
         </div>
    
     	
         <div id="main">
            <?php echo $this->Session->flash(); ?>
            <?php echo $content_for_layout; ?>
-                
-        	
-            
         </div>
         
-        	<ul id="sous_menu" class="clear">
+            <ul id="sous_menu" class="clear">
                 <li><a href="">À propos de "ma pause dèj'"</a></li>
                 <li class="borderleft"><a href="">Mentions légales</a></li>
                 <li class="borderleft">© mapausedej.com</li>
             </ul>
-        
     </div>
-    
      
     <div class="height50"></div>
-	<div id="bottom" class="clear"></div>
+    <div id="bottom" class="clear"></div>
 </body>
 </html>
