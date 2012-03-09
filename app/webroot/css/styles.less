@@ -244,6 +244,31 @@ ul#sous_menu {
     
     .bloc { width:309px; float:left }
     #pres-appli { background:url(/_images/fond_main_1280.png) no-repeat center; width:650px;height:520px;margin:20px 10px}
+    
+    .plats {
+        table { 
+            border:1px solid #9a9a9a;color:#000000; width:100%;
+            a {
+                color:#000000;
+                text-decoration: none;
+                
+            }
+            a:hover { text-decoration: underline; }
+            
+            .colore { background:#fffbed; }
+            th {
+                border-bottom:1px solid #9a9a9a;
+                background:#ebebeb;
+                padding:8px;
+            }
+            td {
+                padding:8px; vertical-align: middle;
+                img { display: block; margin: 0 auto; }
+            }
+        }
+    }
+    
+    #add_plat { display: block;padding:5px;background:@vert; border: 1px solid @gris; text-align: center;width:195px;color:#FFFFFF;text-decoration: none; font-size: 1em; font-weight: bold }
 }
 
 
@@ -286,15 +311,15 @@ ul#sous_menu {
                 h2 { margin-bottom:0.625em; }
                 h2 span { background:#9a9a9a;display:block;width:95%; padding:4px 0 4px 15px}
             }
-            #main {
-                width:100%;background:#FFFFFF; position:relative; margin:0; padding:0; z-index:2;font-size:1.25em; 
-                #pres-appli { display:none;background:none; width:98%;height:auto;margin:20px 10px;}
-                .bloc { width:100%; }
-                #vignettes1280 { display:none }
-                #vignettes800 { display:none }
-            }
         }
 	
+        #main {
+            width:100%;background:#FFFFFF; position:relative; margin:0; padding:0; z-index:2;font-size:1.25em; 
+            #pres-appli { display:none;background:none; width:98%;height:auto;margin:20px 10px;}
+            .bloc { width:100%; }
+            #vignettes1280 { display:none }
+            #vignettes800 { display:none }
+        }
 	
 
 	#pro_restau { padding:20px }
