@@ -12,6 +12,12 @@ class PlatsPhoto extends AppModel {
  * @var string
  */
 	public $displayField = 'name';
+        
+        
+        var $actsAs = array(
+            'MeioUpload' => array('name')
+        );
+        
 /**
  * Validation rules
  *

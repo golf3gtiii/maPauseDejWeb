@@ -8,6 +8,8 @@ App::uses('AppController', 'Controller');
 class PlatsController extends AppController {
 
 
+    public $components = array('Upload');
+
     public function isAuthorized() {
         return true;
     }
@@ -72,9 +74,14 @@ class PlatsController extends AppController {
 			throw new NotFoundException(__('Invalid plat'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
+                        
+                    
+                    
+                    
 			if ($this->Plat->save($this->request->data)) {
-				$this->Session->setFlash(__('The plat has been saved'));
-				$this->redirect(array('action' => 'index'));
+                                
+				$this->Session->setFlash(__('Le plat a été sauvegardé'));
+				//$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The plat could not be saved. Please, try again.'));
 			}

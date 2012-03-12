@@ -6,6 +6,8 @@
 <?php //echo $this->Html->css('styles'); ?>
 <link rel="stylesheet/less" type="text/css" href="/css/styles.less" />
 <script src="/js/less-1.2.2.min.js" type="text/javascript"></script>
+<script src="/js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="/js/jquery.MultiFile.js" type="text/javascript" language="javascript"></script>
 </head>
 
 <body id="page">
@@ -18,7 +20,7 @@
         </div>
    
     	
-        <div id="main">
+        <div id="main" <?php echo $auth->login() ? 'class="borderright"' : ''; ?>>
            <?php echo $this->Session->flash(); ?>
            <?php echo $content_for_layout; ?>
         </div>
@@ -32,5 +34,6 @@
      
     <div class="height50"></div>
     <div id="bottom" class="clear"></div>
+    <?php echo $this->element('sql_dump'); ?><br/><br/><br/><br/>
 </body>
 </html>

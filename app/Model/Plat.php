@@ -115,26 +115,21 @@ class Plat extends AppModel {
 	);
 
 /**
- * hasAndBelongsToMany associations
+ * hasMany associations
  *
  * @var array
  */
-	public $hasAndBelongsToMany = array(
-		'Photo' => array(
-			'className' => 'PlatsPhoto',
-			'joinTable' => 'plats_photos',
-			'foreignKey' => 'plat_id',
-			'associationForeignKey' => 'photo_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
-		)
-	);
+        
+        public $hasMany = array(
+            'Photo' => array(
+                'className'     => 'PlatsPhoto',
+                'foreignKey'    => 'plat_id',
+                'conditions'    => '',
+                'order'         => '',
+                'limit'         => '',
+//                'dependent'     => true
+            )
+        );
+        
 
 }
