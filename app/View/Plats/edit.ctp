@@ -10,7 +10,7 @@
 		echo $this->Form->input('date_fin', array('label' => 'Date de fin de mise en vente du plat *: '));
 		echo $this->Form->input('formule_id');
 		echo $this->Form->input('Photo.name', array('type' => 'file'));
-                echo $this->Form->input('Photo.name.remove', array('type' => 'checkbox'));
+                //echo $this->Form->input('Photo.name.remove', array('type' => 'checkbox'));
 	?>
 
     <div class="alignright">

@@ -2,7 +2,7 @@
 <table width="100%">
     <tr>
         <td><span class="vert">Mes plats</span> du jour</td>
-        <td align="right"><?php echo $this->Html->link('Ajouter un plat du jour', array('controller' => 'plats', 'action' => 'add'), array('id' => 'add_plat')); ?></td>
+        <td align="right"><?php echo $this->Html->link('Ajouter', array('controller' => 'plats', 'action' => 'add'), array('id' => 'add_plat')); ?></td>
     </tr>
 </table>
 </h1>

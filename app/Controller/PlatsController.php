@@ -75,8 +75,12 @@ class PlatsController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
                         
+//                        echo "<pre>";
+//                            print_r($this->request->data);
+//                        echo "</pre>";
                     
-                    
+                        $this->Upload->upload($this->request->data['Photo']['name'], $_SERVER['DOCUMENT_ROOT'].'/img/');
+                        
                     
 			if ($this->Plat->save($this->request->data)) {
                                 
