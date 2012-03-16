@@ -15,6 +15,7 @@ class Plat extends AppModel {
  * @var string
  */
 	public $displayField = 'name';
+        public $order = 'Plat.name ASC';
 /**
  * Validation rules
  *

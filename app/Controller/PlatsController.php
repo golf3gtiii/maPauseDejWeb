@@ -69,34 +69,36 @@ class PlatsController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
-		$this->Plat->id = $id;
-		if (!$this->Plat->exists()) {
-			throw new NotFoundException(__('Invalid plat'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-                        
-//                        echo "<pre>";
-//                            print_r($this->request->data);
-//                        echo "</pre>";
-                    
-                        $this->Upload->upload($this->request->data['Photo']['name'], $_SERVER['DOCUMENT_ROOT'].'/img/');
-                        
-                    
-			if ($this->Plat->save($this->request->data)) {
-                                
-				$this->Session->setFlash(__('Le plat a été sauvegardé'));
-				//$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The plat could not be saved. Please, try again.'));
-			}
-		} else {
-			$this->request->data = $this->Plat->read(null, $id);
-		}
-		$cuisines = $this->Plat->Cuisine->find('list');
-		$ingredients = $this->Plat->Ingredient->find('list');
-		$formules = $this->Plat->Formule->find('list');
-		$photos = $this->Plat->Photo->find('list');
-		$this->set(compact('cuisines', 'ingredients', 'formules', 'photos'));
+            $this->Plat->id = $id;
+            if (!$this->Plat->exists()) {
+                    throw new NotFoundException(__('Invalid plat'));
+            }
+            if ($this->request->is('post') || $this->request->is('put')) {
+
+                    /*echo "<pre>";
+                        print_r($this->request->data);
+                    echo "</pre>";*/
+
+                   $this->Upload->upload($this->request->data['Photo'][0]['name'], $_SERVER['DOCUMENT_ROOT'].'/img/');
+
+                    if ($this->Upload->_name) :
+                        $this->request->data['Photo'][0]['name'] = $this->Upload->_name;                        endif;
+
+                    if ($this->Plat->saveAssociated($this->request->data)) {
+
+                            $this->Session->setFlash(__('Le plat a été sauvegardé'));
+                            //$this->redirect(array('action' => 'index'));
+                    } else {
+                            $this->Session->setFlash(__('Le plat ne peut pas être sauvegardé. Veuillez réessayer.'));
+                    }
+            } else {
+                    $this->request->data = $this->Plat->read(null, $id);
+            }
+            $cuisines = $this->Plat->Cuisine->find('list');
+            $ingredients = $this->Plat->Ingredient->find('list');
+            $formules = $this->Plat->Formule->find('list');
+            $photos = $this->Plat->Photo->find('list');
+            $this->set(compact('cuisines', 'ingredients', 'formules', 'photos'));
 	}
 
 /**

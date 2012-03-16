@@ -12,7 +12,7 @@
                 <a href="" id="fiche">Fiche établissement</a>
             </li>
             <li>
-                <a href="" id="plats">Mes plats du jour</a>
+                <?php echo $this->Html->link('Mes plats du jour', array('controller' => 'plats', 'action' => 'index'), array('id' => 'plats')); ?>
             </li>
         </ul>
     </div>

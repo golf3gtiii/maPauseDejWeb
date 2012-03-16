@@ -5,9 +5,7 @@
 <title><?php echo $title_for_layout?></title>
 <?php //echo $this->Html->css('styles'); ?>
 <link rel="stylesheet/less" type="text/css" href="/css/styles.less" />
-<script src="/js/less-1.2.2.min.js" type="text/javascript"></script>
-<script src="/js/jquery.js" type="text/javascript" language="javascript"></script>
-<script src="/js/jquery.MultiFile.js" type="text/javascript" language="javascript"></script>
+<?php echo $this->fetch('css'); ?>
 </head>
 
 <body id="page">
@@ -35,5 +33,10 @@
     <div class="height50"></div>
     <div id="bottom" class="clear"></div>
     <?php echo $this->element('sql_dump'); ?><br/><br/><br/><br/>
+    
+    <script src="/js/less-1.2.2.min.js" type="text/javascript"></script>
+    <script src="/js/jquery.js" type="text/javascript" language="javascript"></script>
+    <script src="/js/jquery.MultiFile.js" type="text/javascript" language="javascript"></script>
+    <?php echo $this->fetch('script'); ?>
 </body>
 </html>
