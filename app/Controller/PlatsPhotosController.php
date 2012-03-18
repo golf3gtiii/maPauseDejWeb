@@ -10,9 +10,7 @@ class PlatsPhotosController extends AppController {
     public $components = array('UploadHandler');
     
     
-    public function isAuthorized() {
-        return true;
-    }
+    
     
 /**
  * index method

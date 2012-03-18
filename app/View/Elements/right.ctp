@@ -1,7 +1,7 @@
 <?php if ($auth->login()) : ?>
 <div id="connecte">
     
-    <?php echo $this->Html->Link('x Se déconnecter', array('controller' => 'users', 'action' => 'logout'), array('id' => 'deconnexion')); ?>
+    <?php echo $this->Html->Link('x Se déconnecter', array('controller' => 'users', 'action' => 'logout', 'membre' => false), array('id' => 'deconnexion')); ?>
     <div id="menu_connecte">
         
         <p>• Bienvenue</p>
@@ -9,10 +9,10 @@
         <p>Gestion et administration :</p>
         <ul>
             <li>
-                <a href="" id="fiche">Fiche établissement</a>
+                <?php echo $this->Html->link("Fiche établissement",array('action'=>'edit','controller'=>'etablissements', 'membre' => true), array('id' => "fiche")); ?>
             </li>
             <li>
-                <?php echo $this->Html->link('Mes plats du jour', array('controller' => 'plats', 'action' => 'index'), array('id' => 'plats')); ?>
+                <?php echo $this->Html->link('Mes plats du jour', array('controller' => 'plats', 'action' => 'index', 'membre' => true), array('id' => 'plats')); ?>
             </li>
         </ul>
     </div>

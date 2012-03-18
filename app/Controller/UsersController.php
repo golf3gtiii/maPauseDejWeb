@@ -23,12 +23,11 @@ class UsersController extends AppController {
     }
 
     public function logout() {
+        $this->Session->setFlash("Vous êtes maintenant déconnecté.");
         $this->redirect($this->Auth->logout());
     }
     
-    public function isAuthorized() {
-        
-    }
+    
     
     public function getSession() {
         $this->set('auth_session', $this->Auth);

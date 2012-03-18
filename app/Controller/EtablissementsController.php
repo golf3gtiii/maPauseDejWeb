@@ -37,7 +37,7 @@ class EtablissementsController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function membre_add() {
 		if ($this->request->is('post')) {
 			$this->Etablissement->create();
 			if ($this->Etablissement->save($this->request->data)) {
@@ -50,6 +50,7 @@ class EtablissementsController extends AppController {
 		$formules = $this->Etablissement->Formule->find('list');
 		$paiements = $this->Etablissement->Paiement->find('list');
 		$this->set(compact('formules', 'paiements'));
+		
 	}
 
 /**
@@ -58,25 +59,38 @@ class EtablissementsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
-		$this->Etablissement->id = $id;
-		if (!$this->Etablissement->exists()) {
-			throw new NotFoundException(__('Invalid etablissement'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Etablissement->save($this->request->data)) {
-				$this->Session->setFlash(__('The etablissement has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The etablissement could not be saved. Please, try again.'));
-			}
+public function membre_edit() {
+
+	if ($this->request->is('post') || $this->request->is('put')) {
+		if ($this->Etablissement->save($this->request->data)) {
+			$this->Session->setFlash(__('The etablissement has been saved'));
+			//$this->redirect(array('action' => 'index'));
 		} else {
+			$this->Session->setFlash(__('The etablissement could not be saved. Please, try again.'));
+		}
+	} else {
+		$etablissement = $this->Etablissement->find('first',
+												array('conditions' => array('user_id' => AuthComponent::user('id')))
+												);	
+		if (!$etablissement) {
+			$this->Etablissement->save(array('user_id' => AuthComponent::user('id')));
+		}
+		if ($etablissement) {
+			$id = $etablissement['Etablissement']['id'];
+		}
+		if ($id) {
+			$this->Etablissement->id = $id;
+			if (!$this->Etablissement->exists()) {
+				throw new NotFoundException(__('Invalid etablissement'));
+			}
 			$this->request->data = $this->Etablissement->read(null, $id);
 		}
-		$formules = $this->Etablissement->Formule->find('list');
-		$paiements = $this->Etablissement->Paiement->find('list');
-		$this->set(compact('formules', 'paiements'));
+		
 	}
+	$formules = $this->Etablissement->Formule->find('all');
+	$paiements = $this->Etablissement->Paiement->find('list');
+	$this->set(compact('formules', 'paiements'));
+}
 
 /**
  * delete method
@@ -100,7 +114,4 @@ class EtablissementsController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
         
-        public function isAuthorized() {
-            return true;
-        }
 }

@@ -22,7 +22,7 @@ class Etablissement extends AppModel {
 	public $validate = array(
 		'name' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
+				'rule'    => array('notempty'),                                                                                                                                                
 				'message' => 'Entrez le nom de votre établissement',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -32,7 +32,7 @@ class Etablissement extends AppModel {
 		),
 		'adresse' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
+				'rule'    => array('notempty'),
 				'message' => 'Entrez l\'adresse de votre établissement',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -42,7 +42,7 @@ class Etablissement extends AppModel {
 		),
 		'ville' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
+				'rule'    => array('notempty'),
 				'message' => 'Entrez la ville de votre établissement',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -52,7 +52,7 @@ class Etablissement extends AppModel {
 		),
 		'code_postal' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
+				'rule'    => array('notempty'),
 				'message' => 'Entrez le code postal de votre établissement',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -62,16 +62,8 @@ class Etablissement extends AppModel {
 		),
 		'telephone' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
+				'rule'    => array('notempty'),
 				'message' => 'Entrez le téléphone de votre établissement',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-			'phone' => array(
-				'rule' => array('phone'),
-				'message' => 'Le numéro n\'est pas correct',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -80,7 +72,7 @@ class Etablissement extends AppModel {
 		),
 		'descriptif' => array(
 			'notempty' => array(
-				'rule' => array('notempty'),
+				'rule'    => array('notempty'),
 				'message' => 'Entrez un description de votre établissement',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -90,8 +82,8 @@ class Etablissement extends AppModel {
 		),
 		'places_assises' => array(
 			'numeric' => array(
-				//'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
+				'rule' => array('numeric'),
+				'message' => 'Veuillez entrer un chiffre',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule

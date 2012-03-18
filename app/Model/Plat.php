@@ -132,5 +132,10 @@ class Plat extends AppModel {
             )
         );
         
+public function beforeFind($queryData = array()) {
+	//$queryData['conditions']['user_id'] = AuthComponent::user('id');
+	$queryData['conditions']['user_id'] = AuthComponent::user('id');
+	return $queryData;
+}
 
 }

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Ven 09 Mars 2012 à 22:22
+-- Généré le : Dim 18 Mars 2012 à 21:08
 -- Version du serveur: 5.5.9
 -- Version de PHP: 5.3.6
 
@@ -29,12 +29,61 @@ CREATE TABLE `cuisines` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `etablissements`
+--
+
+CREATE TABLE `etablissements` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `adresse` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ville` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `code_postal` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `telephone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `descriptif` text COLLATE utf8_unicode_ci NOT NULL,
+  `vente` enum('sur place','à emporter','all') COLLATE utf8_unicode_ci NOT NULL,
+  `places_assises` int(11) NOT NULL,
+  `site_internet` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `facebook` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `twitter` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `etablissements_formules`
+--
+
+CREATE TABLE `etablissements_formules` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `etablissement_id` int(11) NOT NULL,
+  `formule_id` int(11) NOT NULL,
+  `tarif` float(11,2) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `etablissement_id` (`etablissement_id`,`formule_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
+-- --------------------------------------------------------
+
 --
--- Contenu de la table `cuisines`
+-- Structure de la table `etablissements_paiements`
 --
 
+CREATE TABLE `etablissements_paiements` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `paiement_id` int(11) NOT NULL,
+  `etablissement_id` int(11) NOT NULL,
+  `montant` float(11,2) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `paiement_id` (`paiement_id`,`etablissement_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -46,12 +95,7 @@ CREATE TABLE `formules` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
---
--- Contenu de la table `formules`
---
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
 
 -- --------------------------------------------------------
 
@@ -63,12 +107,33 @@ CREATE TABLE `ingredients` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `paiements`
+--
+
+CREATE TABLE `paiements` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `photos`
+--
+
+CREATE TABLE `photos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `etablissement_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `etablissement_id` (`etablissement_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
---
--- Contenu de la table `ingredients`
---
-
 
 -- --------------------------------------------------------
 
@@ -85,17 +150,13 @@ CREATE TABLE `plats` (
   `date_debut` date NOT NULL,
   `date_fin` date NOT NULL,
   `formule_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `cuisine_id` (`cuisine_id`,`ingredient_id`,`formule_id`)
+  KEY `cuisine_id` (`cuisine_id`,`ingredient_id`,`formule_id`),
+  KEY `ingredient_id` (`ingredient_id`),
+  KEY `formule_id` (`formule_id`),
+  KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
-
---
--- Contenu de la table `plats`
---
-
-INSERT INTO `plats` VALUES(2, 'dfsfsd', 0, 0, '', '2012-03-09', '2012-03-09', 0);
-INSERT INTO `plats` VALUES(3, 'autre', 0, 0, '', '2012-03-09', '2012-03-09', 0);
-INSERT INTO `plats` VALUES(4, 'fff', 0, 0, '', '2012-03-09', '2012-03-09', 0);
 
 -- --------------------------------------------------------
 
@@ -109,11 +170,6 @@ CREATE TABLE `plats_photos` (
   `plat_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
---
--- Contenu de la table `plats_photos`
---
-
 
 -- --------------------------------------------------------
 
@@ -131,9 +187,3 @@ CREATE TABLE `users` (
   `confirm` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
-
---
--- Contenu de la table `users`
---
-
-INSERT INTO `users` VALUES(4, 'golf3gtiii@hotmail.com', '8a72d704ff48a3d0bb01dea34c48ea217edc24fb', '', '2012-03-07 21:37:56', '2012-03-07 21:37:56', 0);

@@ -10,17 +10,15 @@ class PlatsController extends AppController {
 
     public $components = array('Upload');
 
-    public function isAuthorized() {
-        return true;
-    }
+    
         
 /**
  * index method
  *
  * @return void
  */
-	public function index() {
-		$this->Plat->recursive = 0;
+	public function membre_index() {
+		$this->Plat->recursive = -1;
 		$this->set('plats', $this->paginate());
 	}
 
@@ -30,7 +28,7 @@ class PlatsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function membre_view($id = null) {
 		$this->Plat->id = $id;
 		if (!$this->Plat->exists()) {
 			throw new NotFoundException(__('Invalid plat'));
@@ -45,7 +43,7 @@ class PlatsController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function membre_add() {
 		if ($this->request->is('post')) {
 			$this->Plat->create();
 			if ($this->Plat->save($this->request->data)) {
@@ -68,7 +66,7 @@ class PlatsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function membre_edit($id = null) {
             $this->Plat->id = $id;
             if (!$this->Plat->exists()) {
                     throw new NotFoundException(__('Invalid plat'));
@@ -107,7 +105,7 @@ class PlatsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function membre_delete($id = null) {
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}

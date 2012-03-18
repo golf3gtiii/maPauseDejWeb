@@ -24,7 +24,7 @@
         </div>
         
             <ul id="sous_menu" class="clear">
-                <li><a href="">À propos de "ma pause dèj'"</a></li>
+                <li><a href="">À propos de "ma pause déj'"</a></li>
                 <li class="borderleft"><a href="">Mentions légales</a></li>
                 <li class="borderleft">© mapausedej.com</li>
             </ul>
